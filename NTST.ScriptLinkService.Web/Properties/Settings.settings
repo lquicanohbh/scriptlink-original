@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NTST.ScriptLinkService.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NTST_ScriptLinkService_Web_ClientDischarge_ClientDischarge" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://avtest:8972/csp/avtest/hmhcpmlive/WEBSVC.ClientDischarge.cls</Value>
+    </Setting>
+    <Setting Name="NTST_ScriptLinkService_Web_UserManagement_WebServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://avtest:8972/csp/avtest/hmhcpmlive/WEBSVC.UserManagement.cls</Value>
+    </Setting>
+    <Setting Name="NTST_ScriptLinkService_Web_DCIImport_DCIImport" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://avtest:8972/csp/avtest/hmhcpmlive/WEBSVC.DCIImport.cls</Value>
+    </Setting>
+    <Setting Name="NTST_ScriptLinkService_Web_ClientDiagnosis_ClientDiagnosis" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://avtest:8972/csp/avtest/hmhcpmlive/WEBSVC.ClientDiagnosis.cls</Value>
+    </Setting>
+    <Setting Name="NTST_ScriptLinkService_Web_ProgramTransfer_ProgramTransfer" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://avtest:8972/csp/avtest/hmhcpmlive/WEBSVC.ProgramTransfer.cls</Value>
+    </Setting>
+    <Setting Name="NTST_ScriptLinkService_Web_AppointmentService_Appointment" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://avtest:8972/csp/avtest/hmhcpmlive/WSAPI.PM.Appointment.AppointmentService.cls</Value>
+    </Setting>
+    <Setting Name="NTST_ScriptLinkService_Web_AppointmentScheduling_AppointmentScheduling" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://avtest:8972/csp/avtest/hmhcpmlive/WEBSVC.AppointmentScheduling.cls</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

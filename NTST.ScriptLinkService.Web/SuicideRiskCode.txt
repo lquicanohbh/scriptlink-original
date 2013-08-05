@@ -1,0 +1,94 @@
+﻿//Below is the code to copy and paste into the desired asmx.
+
+private OptionObject SuicideRiskAssessment(OptionObject optionObject)
+        {
+            OptionObject returnOptionObject = new OptionObject();
+            int score;
+
+            score = 0;
+            foreach (var form in optionObject.Forms)
+            {
+                foreach (var currentField in form.CurrentRow.Fields)
+                {
+                    try
+                    {
+                        switch (currentField.FieldNumber)
+                        {
+                            case "126.97":
+                            case "126.99":
+                            case "127.01":
+                            case "127.03":
+                            case "127.05":
+                            case "127.07":
+                            case "127.09":
+                            case "127.11":
+                            case "127.13":
+                            case "127.15":
+                            case "127.17":
+                            case "127.19":
+                            case "127.25":
+                                score += int.Parse(currentField.FieldValue);
+                                break;
+                            case "127.21":
+                                if (currentField.FieldValue.Equals("1"))
+                                {
+                                    score += 1;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //handle conversion errors here - log exception, etc
+                    }
+                }
+            }
+
+
+            var returnMessage = "Client is at low to moderate risk of suicide, supportive services should be arranged as appropriate.";
+
+            if (score >= 9)
+            {
+                returnMessage = "Results indicate that client is at HIGH RISK of attempting or committing suicide. Immediate inpatient psychiatric services are strongly recommended.";
+                // send email or text message
+                var sendTo = "who@yourdomain.com";
+                var subject = "Suicide Alert";
+                var message = "Results indicate that a client in your caseload is at HIGH RISK of attempting or committing suicide. Immediate inpatient psychiatric services are strongly recommended. Please call 555-1212.";
+                //send message
+                //var retMessage = SendMail(sendTo, subject, message)
+                //returnOptionObject.ErrorMesg = returnMessage + "\r\n" + "\r\n" + retMessage;
+            }
+
+            var fields = new FieldObject[1];
+            var field = new FieldObject();
+            var forms = new FormObject[1];
+            var formObject = new FormObject();
+            var currentRow = new RowObject();
+
+            field.FieldNumber = "128.56";
+            field.FieldValue = score.ToString();
+            field.Enabled = "0";
+            fields[0] = field;
+
+            currentRow.Fields = fields;
+            currentRow.RowId = optionObject.Forms[0].CurrentRow.RowId;
+            currentRow.ParentRowId = optionObject.Forms[0].CurrentRow.ParentRowId;
+            currentRow.RowAction = "EDIT";
+
+            formObject.FormId = "927";
+            formObject.CurrentRow = currentRow;
+            forms[0] = formObject;
+
+            returnOptionObject.ErrorCode = 3;
+            returnOptionObject.ErrorMesg = returnMessage;
+            returnOptionObject.EntityID = optionObject.EntityID;
+            returnOptionObject.OptionId = optionObject.OptionId;
+            returnOptionObject.SystemCode = optionObject.SystemCode;
+            returnOptionObject.Facility = optionObject.Facility;
+            returnOptionObject.Forms = forms;
+
+            return returnOptionObject;
+
+        }

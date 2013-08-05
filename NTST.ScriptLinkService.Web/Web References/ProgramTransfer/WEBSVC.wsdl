@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s0="http://tempuri.org" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org">
+      <s:element name="GetDictionaryItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDictionaryItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetDictionaryItemsResult" type="s0:ArrayOfDictionaryItemObjectDictionaryItemObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDictionaryItemObjectDictionaryItemObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DictionaryItemObject" nillable="true" type="s0:DictionaryItemObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DictionaryItemObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="DictionaryCode" type="s:string" />
+          <s:element minOccurs="0" name="DictionaryFieldDescription" type="s:string" />
+          <s:element minOccurs="0" name="DictionaryUniqueId" type="s:string" />
+          <s:element minOccurs="0" name="DictionaryValue" type="s:string" />
+          <s:element minOccurs="0" name="Mesg" type="s:string" />
+          <s:element minOccurs="0" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TransferProgram">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+            <s:element minOccurs="0" name="ProgramTransferInfo" type="s0:ProgramTransferObject" />
+            <s:element minOccurs="0" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" name="EpisodeNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProgramTransferObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="AdmissionChargeCode" type="s:string" />
+          <s:element minOccurs="0" name="Bed" type="s:string" />
+          <s:element minOccurs="0" name="DailyChargeCode" type="s:string" />
+          <s:element minOccurs="0" name="DailyChargeCode2" type="s:string" />
+          <s:element minOccurs="0" name="DailyChargeCode3" type="s:string" />
+          <s:element minOccurs="0" name="DailyChargeCode4" type="s:string" />
+          <s:element minOccurs="0" name="DailyChargeCode5" type="s:string" />
+          <s:element minOccurs="0" name="DateOfTransfer" type="s:date" />
+          <s:element minOccurs="0" name="PartialHospitalBillingCode" type="s:string" />
+          <s:element minOccurs="0" name="PartialHospitalBillingCode2" type="s:string" />
+          <s:element minOccurs="0" name="PartialHospitilizationDays" type="s:string" />
+          <s:element minOccurs="0" name="PartialHospitilizationHours" type="s:string" />
+          <s:element minOccurs="0" name="Program" type="s:string" />
+          <s:element minOccurs="0" name="Room" type="s:string" />
+          <s:element minOccurs="0" name="RoomAndBoardBillingCode" type="s:string" />
+          <s:element minOccurs="0" name="TimeOfTransfer" type="s:string" />
+          <s:element minOccurs="0" name="TypeOfTransfer" type="s:string" />
+          <s:element minOccurs="0" name="Unit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TransferProgramResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="TransferProgramResult" type="s0:WebServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WebServiceResponse">
+        <s:sequence>
+          <s:element minOccurs="0" name="Confirmation" type="s:string" />
+          <s:element minOccurs="0" name="Message" type="s:string" />
+          <s:element minOccurs="0" name="ResponseCode" type="s:string" />
+          <s:element minOccurs="0" name="ResponseObjects" type="s0:ArrayOfResponseObjectResponseObject" />
+          <s:element minOccurs="0" name="Status" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResponseObjectResponseObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResponseObject" nillable="true" type="s0:ResponseObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResponseObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="Confirmation" type="s:string" />
+          <s:element minOccurs="0" name="Message" type="s:string" />
+          <s:element minOccurs="0" name="Status" type="s:long" />
+          <s:element minOccurs="0" name="ResponseCode" type="s:string" />
+          <s:element minOccurs="0" name="UniqueID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDictionaryItemsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetDictionaryItems" />
+  </wsdl:message>
+  <wsdl:message name="GetDictionaryItemsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetDictionaryItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransferProgramSoapIn">
+    <wsdl:part name="parameters" element="s0:TransferProgram" />
+  </wsdl:message>
+  <wsdl:message name="TransferProgramSoapOut">
+    <wsdl:part name="parameters" element="s0:TransferProgramResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProgramTransferSoap">
+    <wsdl:operation name="GetDictionaryItems">
+      <wsdl:input message="s0:GetDictionaryItemsSoapIn" />
+      <wsdl:output message="s0:GetDictionaryItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferProgram">
+      <wsdl:input message="s0:TransferProgramSoapIn" />
+      <wsdl:output message="s0:TransferProgramSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProgramTransferSoap" type="s0:ProgramTransferSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDictionaryItems">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.ProgramTransfer.GetDictionaryItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferProgram">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.ProgramTransfer.TransferProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProgramTransfer">
+    <wsdl:port name="ProgramTransferSoap" binding="s0:ProgramTransferSoap">
+      <soap:address location="http://avtest:8972/csp/avtest/hmhcpmlive/WEBSVC.ProgramTransfer.cls" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

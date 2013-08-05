@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s0="http://tempuri.org" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org">
+      <s:element name="AddAppointment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+            <s:element minOccurs="0" name="AppointmentSchedulingInfo" type="s0:AppointmentSchedulingObject" />
+            <s:element minOccurs="0" name="StaffID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AppointmentSchedulingObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="ApptDate" type="s:date" />
+          <s:element minOccurs="0" name="ApptEndTime" type="s:string" />
+          <s:element minOccurs="0" name="ApptNotes">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="ApptReqFollowUp" type="s:string" />
+          <s:element minOccurs="0" name="ApptStartTime" type="s:string" />
+          <s:element minOccurs="0" name="ApptStatus" type="s:string" />
+          <s:element minOccurs="0" name="ClientID" type="s:string" />
+          <s:element minOccurs="0" name="ClientToPayAtFront" type="s:string" />
+          <s:element minOccurs="0" name="ConfirmationNotes">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="Confirmed" type="s:string" />
+          <s:element minOccurs="0" name="CoStaffMember" type="s:string" />
+          <s:element minOccurs="0" name="Episode" type="s:long" />
+          <s:element minOccurs="0" name="EvidBasedPractsCSI" type="s:string" />
+          <s:element minOccurs="0" name="FollowUpApptDueDate" type="s:date" />
+          <s:element minOccurs="0" name="FollowUpApptFor" type="s:string" />
+          <s:element minOccurs="0" name="FollowUpStatus" type="s:string" />
+          <s:element minOccurs="0" name="Group" type="s:string" />
+          <s:element minOccurs="0" name="Location" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag1" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag2" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag3" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag4" type="s:string" />
+          <s:element minOccurs="0" name="MissedVisit" type="s:string" />
+          <s:element minOccurs="0" name="MissedVisitNotes">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="MissedVisitSvcCode" type="s:string" />
+          <s:element minOccurs="0" name="Modifiers" type="s:string" />
+          <s:element minOccurs="0" name="NumberOfClients" type="s:string" />
+          <s:element minOccurs="0" name="Program" type="s:string" />
+          <s:element minOccurs="0" name="ReasonForFollowUp" type="s:string" />
+          <s:element minOccurs="0" name="RefPractitioner" type="s:string" />
+          <s:element minOccurs="0" name="RefProvider" type="s:string" />
+          <s:element minOccurs="0" name="SecondCoStaffMember" type="s:string" />
+          <s:element minOccurs="0" name="ServiceCode" type="s:string" />
+          <s:element minOccurs="0" name="Site" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDate1" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDate2" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDate3" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDate4" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDate5" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDict1" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict2" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict3" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict4" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict5" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText101" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText102" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText103" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText104" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText105" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText201" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText202" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText203" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText204" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText205" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText401" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText402" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText403" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText404" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText405" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedInteger1" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger2" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger3" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger4" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger5" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger6" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict1" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict2" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict3" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict4" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict5" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup1" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup2" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup3" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup4" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup5" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText1">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText2">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText3">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText4">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText5">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedTime1" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedTime2" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedTime3" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedTime4" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedTime5" type="s:string" />
+          <s:element minOccurs="0" name="AdditionalServiceInformation" type="s:string" />
+          <s:element minOccurs="0" name="PsychotherapyAddOnDuration" type="s:long" />
+          <s:element minOccurs="0" name="AddOnNotes">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="AddAppointmentResult" type="s0:WebServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WebServiceResponse">
+        <s:sequence>
+          <s:element minOccurs="0" name="Confirmation" type="s:string" />
+          <s:element minOccurs="0" name="Message" type="s:string" />
+          <s:element minOccurs="0" name="ResponseCode" type="s:string" />
+          <s:element minOccurs="0" name="ResponseObjects" type="s0:ArrayOfResponseObjectResponseObject" />
+          <s:element minOccurs="0" name="Status" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResponseObjectResponseObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResponseObject" nillable="true" type="s0:ResponseObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResponseObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="Confirmation" type="s:string" />
+          <s:element minOccurs="0" name="Message" type="s:string" />
+          <s:element minOccurs="0" name="Status" type="s:long" />
+          <s:element minOccurs="0" name="ResponseCode" type="s:string" />
+          <s:element minOccurs="0" name="UniqueID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteAppointment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+            <s:element minOccurs="0" name="AppointmentSchedulingUniqueID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="DeleteAppointmentResult" type="s0:WebServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppointments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+            <s:element minOccurs="0" name="GetAppointmentsInfo" type="s0:GetAppointmentsObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetAppointmentsObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="ApptBeginDate" type="s:date" />
+          <s:element minOccurs="0" name="ApptEndDate" type="s:date" />
+          <s:element minOccurs="0" name="Posted" type="s:string" />
+          <s:element minOccurs="0" name="Site" type="s:string" />
+          <s:element minOccurs="0" name="Staff" type="s:string" />
+          <s:element minOccurs="0" name="Verified" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAppointmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetAppointmentsResult" type="s0:ArrayOfAppointmentObjectAppointmentObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAppointmentObjectAppointmentObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AppointmentObject" nillable="true" type="s0:AppointmentObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AppointmentObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="ApptDate" type="s:date" />
+          <s:element minOccurs="0" name="ApptEndTime" type="s:string" />
+          <s:element minOccurs="0" name="ApptNotes">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="ApptReqFollowUpCode" type="s:string" />
+          <s:element minOccurs="0" name="ApptReqFollowUpValue" type="s:string" />
+          <s:element minOccurs="0" name="ApptStartTime" type="s:string" />
+          <s:element minOccurs="0" name="ApptStatusCode" type="s:string" />
+          <s:element minOccurs="0" name="ApptStatusValue" type="s:string" />
+          <s:element minOccurs="0" name="ClientID" type="s:string" />
+          <s:element minOccurs="0" name="ClientName" type="s:string" />
+          <s:element minOccurs="0" name="ClientToPayAtFrontCode" type="s:string" />
+          <s:element minOccurs="0" name="ClientToPayAtFrontValue" type="s:string" />
+          <s:element minOccurs="0" name="ConfirmationNotes">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="ConfirmedCode" type="s:string" />
+          <s:element minOccurs="0" name="ConfirmedValue" type="s:string" />
+          <s:element minOccurs="0" name="CoStaffMemberID" type="s:string" />
+          <s:element minOccurs="0" name="CoStaffMemberName" type="s:string" />
+          <s:element minOccurs="0" name="Episode" type="s:long" />
+          <s:element minOccurs="0" name="EvidBasedPractsCSICode" type="s:string" />
+          <s:element minOccurs="0" name="EvidBasedPractsCSIValue" type="s:string" />
+          <s:element minOccurs="0" name="FollowUpApptDueDate" type="s:date" />
+          <s:element minOccurs="0" name="FollowUpApptFor" type="s:string" />
+          <s:element minOccurs="0" name="FollowUpStatusCode" type="s:string" />
+          <s:element minOccurs="0" name="FollowUpStatusValue" type="s:string" />
+          <s:element minOccurs="0" name="GroupID" type="s:string" />
+          <s:element minOccurs="0" name="GroupName" type="s:string" />
+          <s:element minOccurs="0" name="LocationCode" type="s:string" />
+          <s:element minOccurs="0" name="LocationValue" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag1Code" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag1Value" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag2Code" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag2Value" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag3Code" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag3Value" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag4Code" type="s:string" />
+          <s:element minOccurs="0" name="MedicalDiag4Value" type="s:string" />
+          <s:element minOccurs="0" name="Mesg" type="s:string" />
+          <s:element minOccurs="0" name="MissedVisitCode" type="s:string" />
+          <s:element minOccurs="0" name="MissedVisitValue" type="s:string" />
+          <s:element minOccurs="0" name="MissedVisitNotes">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="MissedVisitSvcCode" type="s:string" />
+          <s:element minOccurs="0" name="MissedVisitSvcCodeDesc" type="s:string" />
+          <s:element minOccurs="0" name="Modifiers" type="s:string" />
+          <s:element minOccurs="0" name="NumberOfClients" type="s:string" />
+          <s:element minOccurs="0" name="PostedCode" type="s:string" />
+          <s:element minOccurs="0" name="PostedValue" type="s:string" />
+          <s:element minOccurs="0" name="ProgramCode" type="s:string" />
+          <s:element minOccurs="0" name="ProgramValue" type="s:string" />
+          <s:element minOccurs="0" name="ReasonForFollowUp" type="s:string" />
+          <s:element minOccurs="0" name="RefPractitionerID" type="s:string" />
+          <s:element minOccurs="0" name="RefPractitionerName" type="s:string" />
+          <s:element minOccurs="0" name="RefProviderID" type="s:string" />
+          <s:element minOccurs="0" name="RefProviderName" type="s:string" />
+          <s:element minOccurs="0" name="SecondCoStaffMemberID" type="s:string" />
+          <s:element minOccurs="0" name="SecondCoStaffMemberName" type="s:string" />
+          <s:element minOccurs="0" name="ServiceCode" type="s:string" />
+          <s:element minOccurs="0" name="ServiceCodeDesc" type="s:string" />
+          <s:element minOccurs="0" name="SiteID" type="s:string" />
+          <s:element minOccurs="0" name="SiteName" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDate1" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDate2" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDate3" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDate4" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDate5" type="s:date" />
+          <s:element minOccurs="0" name="SSApptSchedDict1Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict1Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict2Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict2Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict3Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict3Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict4Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict4Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict5Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedDict5Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText101" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText102" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText103" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText104" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText105" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText201" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText202" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText203" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText204" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText205" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText401" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText402" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText403" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText404" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedFreeText405" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedInteger1" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger2" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger3" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger4" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger5" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedInteger6" type="s:long" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict1Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict1Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict2Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict2Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict3Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict3Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict4Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict4Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict5Code" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedMultSelDict5Value" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup1ID" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup1Name" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup2ID" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup2Name" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup3ID" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup3Name" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup4ID" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup4Name" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup5ID" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedPracLookup5Name" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText1">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText2">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText3">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText4">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedScrFreeText5">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="32766" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" name="SSApptSchedTime1" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedTime2" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedTime3" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedTime4" type="s:string" />
+          <s:element minOccurs="0" name="SSApptSchedTime5" type="s:string" />
+          <s:element minOccurs="0" name="StaffID" type="s:string" />
+          <s:element minOccurs="0" name="StaffName" type="s:string" />
+          <s:element minOccurs="0" name="Status" type="s:string" />
+          <s:element minOccurs="0" name="UniqueID" type="s:string" />
+          <s:element minOccurs="0" name="VerifiedCode" type="s:string" />
+          <s:element minOccurs="0" name="VerifiedValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDictionaryItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDictionaryItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetDictionaryItemsResult" type="s0:ArrayOfDictionaryItemObjectDictionaryItemObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDictionaryItemObjectDictionaryItemObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DictionaryItemObject" nillable="true" type="s0:DictionaryItemObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DictionaryItemObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="DictionaryCode" type="s:string" />
+          <s:element minOccurs="0" name="DictionaryFieldDescription" type="s:string" />
+          <s:element minOccurs="0" name="DictionaryUniqueId" type="s:string" />
+          <s:element minOccurs="0" name="DictionaryValue" type="s:string" />
+          <s:element minOccurs="0" name="Mesg" type="s:string" />
+          <s:element minOccurs="0" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateAppointment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+            <s:element minOccurs="0" name="AppointmentSchedulingInfo" type="s0:AppointmentSchedulingObject" />
+            <s:element minOccurs="0" name="StaffID" type="s:string" />
+            <s:element minOccurs="0" name="AppointmentSchedulingUniqueID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="UpdateAppointmentResult" type="s0:WebServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddAppointmentSoapIn">
+    <wsdl:part name="parameters" element="s0:AddAppointment" />
+  </wsdl:message>
+  <wsdl:message name="AddAppointmentSoapOut">
+    <wsdl:part name="parameters" element="s0:AddAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAppointmentSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteAppointment" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAppointmentSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppointmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetAppointments" />
+  </wsdl:message>
+  <wsdl:message name="GetAppointmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDictionaryItemsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetDictionaryItems" />
+  </wsdl:message>
+  <wsdl:message name="GetDictionaryItemsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetDictionaryItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAppointmentSoapIn">
+    <wsdl:part name="parameters" element="s0:UpdateAppointment" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAppointmentSoapOut">
+    <wsdl:part name="parameters" element="s0:UpdateAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AppointmentSchedulingSoap">
+    <wsdl:operation name="AddAppointment">
+      <wsdl:input message="s0:AddAppointmentSoapIn" />
+      <wsdl:output message="s0:AddAppointmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppointment">
+      <wsdl:input message="s0:DeleteAppointmentSoapIn" />
+      <wsdl:output message="s0:DeleteAppointmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointments">
+      <wsdl:input message="s0:GetAppointmentsSoapIn" />
+      <wsdl:output message="s0:GetAppointmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDictionaryItems">
+      <wsdl:input message="s0:GetDictionaryItemsSoapIn" />
+      <wsdl:output message="s0:GetDictionaryItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppointment">
+      <wsdl:input message="s0:UpdateAppointmentSoapIn" />
+      <wsdl:output message="s0:UpdateAppointmentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AppointmentSchedulingSoap" type="s0:AppointmentSchedulingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddAppointment">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.AppointmentScheduling.AddAppointment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppointment">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.AppointmentScheduling.DeleteAppointment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointments">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.AppointmentScheduling.GetAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDictionaryItems">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.AppointmentScheduling.GetDictionaryItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppointment">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.AppointmentScheduling.UpdateAppointment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AppointmentScheduling">
+    <wsdl:port name="AppointmentSchedulingSoap" binding="s0:AppointmentSchedulingSoap">
+      <soap:address location="http://avtest:8972/csp/avtest/hmhcpmlive/WEBSVC.AppointmentScheduling.cls" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

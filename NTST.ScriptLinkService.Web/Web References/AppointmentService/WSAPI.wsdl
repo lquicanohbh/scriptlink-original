@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s0="http://ntst.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ntst.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ntst.com">
+      <s:element name="GetAppointmentsByDateTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="loginInfo" type="s0:LoginInfo" />
+            <s:element minOccurs="0" name="startDate" type="s:date" />
+            <s:element minOccurs="0" name="endDate" type="s:date" />
+            <s:element minOccurs="0" name="startTime" type="s:time" />
+            <s:element minOccurs="0" name="endTime" type="s:time" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginInfo">
+        <s:sequence>
+          <s:element name="systemCode" type="s:string" />
+          <s:element name="userName" type="s:string" />
+          <s:element name="password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAppointmentsByDateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetAppointmentsByDateTimeResult" type="s0:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AppointmentResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Response">
+            <s:sequence>
+              <s:element minOccurs="0" name="appointment" type="s0:ArrayOfAppointmentObjectsPairOfappointmentKeyAppointmentObject" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="0" name="resultCode" type="s:string" />
+          <s:element minOccurs="0" name="resultMessage">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:maxLength value="2000" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAppointmentObjectsPairOfappointmentKeyAppointmentObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AppointmentObjects" nillable="true" type="s0:PairOfappointmentKeyAppointmentObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PairOfappointmentKeyAppointmentObject">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:AppointmentObject">
+            <s:attribute name="appointmentKey" type="s:string" use="required" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AppointmentObject">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:ResponseClass">
+            <s:sequence>
+              <s:element minOccurs="0" name="client" type="s0:ArrayOfClientsPairOfclientKeyClientObjectWithEpisode" />
+              <s:element minOccurs="0" name="coStaffDuration" type="s:string" />
+              <s:element minOccurs="0" name="coStaffId" type="s:string" />
+              <s:element minOccurs="0" name="date" type="s:string" />
+              <s:element minOccurs="0" name="duration" type="s:string" />
+              <s:element minOccurs="0" name="endTime" type="s:string" />
+              <s:element minOccurs="0" name="isConfirmed" type="s:string" />
+              <s:element minOccurs="0" name="isMissed" type="s:string" />
+              <s:element minOccurs="0" name="location" type="s:string" />
+              <s:element minOccurs="0" name="program" type="s:string" />
+              <s:element minOccurs="0" name="secoStaffDuration" type="s:string" />
+              <s:element minOccurs="0" name="secoStaffId" type="s:string" />
+              <s:element minOccurs="0" name="serviceCode" type="s:string" />
+              <s:element minOccurs="0" name="site" type="s:string" />
+              <s:element minOccurs="0" name="staffId" type="s:string" />
+              <s:element minOccurs="0" name="startTime" type="s:string" />
+              <s:element minOccurs="0" name="status" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResponseClass" />
+      <s:complexType name="ArrayOfClientsPairOfclientKeyClientObjectWithEpisode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Clients" nillable="true" type="s0:PairOfclientKeyClientObjectWithEpisode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PairOfclientKeyClientObjectWithEpisode">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:ClientObjectWithEpisode">
+            <s:attribute name="clientKey" type="s:string" use="required" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ClientObjectWithEpisode">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:ResponseClass">
+            <s:sequence>
+              <s:element minOccurs="0" name="admissionDate" type="s:string" />
+              <s:element minOccurs="0" name="dischargeDate" type="s:string" />
+              <s:element minOccurs="0" name="episodeNumber" type="s:long" />
+              <s:element minOccurs="0" name="program" type="s:string" />
+              <s:element minOccurs="0" name="type" type="s:string" />
+              <s:element minOccurs="0" name="addressCity" type="s:string" />
+              <s:element minOccurs="0" name="addressCountry" type="s:string" />
+              <s:element minOccurs="0" name="addressCounty" type="s:string" />
+              <s:element minOccurs="0" name="addressState" type="s:string" />
+              <s:element minOccurs="0" name="addressStreet" type="s:string" />
+              <s:element minOccurs="0" name="addressStreet2" type="s:string" />
+              <s:element minOccurs="0" name="addressZip" type="s:string" />
+              <s:element minOccurs="0" name="alias" type="s:string" />
+              <s:element minOccurs="0" name="cellPhone" type="s:string" />
+              <s:element minOccurs="0" name="clientId" type="s:string" />
+              <s:element minOccurs="0" name="commPreference" type="s:string" />
+              <s:element minOccurs="0" name="dateOfBirth" type="s:string" />
+              <s:element minOccurs="0" name="email" type="s:string" />
+              <s:element minOccurs="0" name="empStatus" type="s:string" />
+              <s:element minOccurs="0" name="fcn" type="s:string" />
+              <s:element minOccurs="0" name="homePhone" type="s:string" />
+              <s:element minOccurs="0" name="maidenName" type="s:string" />
+              <s:element minOccurs="0" name="maritalStatus" type="s:string" />
+              <s:element minOccurs="0" name="name" type="s:string" />
+              <s:element minOccurs="0" name="occupation" type="s:string" />
+              <s:element minOccurs="0" name="picture" type="s:base64Binary" />
+              <s:element minOccurs="0" name="primLang" type="s:string" />
+              <s:element minOccurs="0" name="sex" type="s:string" />
+              <s:element minOccurs="0" name="ssn" type="s:string" />
+              <s:element minOccurs="0" name="workPhone" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetClientAppointments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="loginInfo" type="s0:LoginInfo" />
+            <s:element minOccurs="0" name="clientId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientAppointmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetClientAppointmentsResult" type="s0:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCoStaffAppointments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="loginInfo" type="s0:LoginInfo" />
+            <s:element minOccurs="0" name="coStaffId" type="s:string" />
+            <s:element minOccurs="0" name="startDate" type="s:date" />
+            <s:element minOccurs="0" name="endDate" type="s:date" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCoStaffAppointmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetCoStaffAppointmentsResult" type="s0:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupAppointments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="loginInfo" type="s0:LoginInfo" />
+            <s:element minOccurs="0" name="groupCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupAppointmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetGroupAppointmentsResult" type="s0:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostedAppointments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="loginInfo" type="s0:LoginInfo" />
+            <s:element minOccurs="0" name="clientId" type="s:string" />
+            <s:element minOccurs="0" name="staffId" type="s:string" />
+            <s:element minOccurs="0" name="coStaffId" type="s:string" />
+            <s:element minOccurs="0" name="groupCode" type="s:string" />
+            <s:element minOccurs="0" name="startDate" type="s:date" />
+            <s:element minOccurs="0" name="endDate" type="s:date" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostedAppointmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetPostedAppointmentsResult" type="s0:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteAppointments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="loginInfo" type="s0:LoginInfo" />
+            <s:element minOccurs="0" name="site" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteAppointmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetSiteAppointmentsResult" type="s0:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStaffAppointments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="loginInfo" type="s0:LoginInfo" />
+            <s:element minOccurs="0" name="staffId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStaffAppointmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetStaffAppointmentsResult" type="s0:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnVerifiedAppointments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="loginInfo" type="s0:LoginInfo" />
+            <s:element minOccurs="0" name="clientId" type="s:string" />
+            <s:element minOccurs="0" name="staffId" type="s:string" />
+            <s:element minOccurs="0" name="coStaffId" type="s:string" />
+            <s:element minOccurs="0" name="groupCode" type="s:string" />
+            <s:element minOccurs="0" name="startDate" type="s:date" />
+            <s:element minOccurs="0" name="endDate" type="s:date" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnVerifiedAppointmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetUnVerifiedAppointmentsResult" type="s0:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVerifiedAppointments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="loginInfo" type="s0:LoginInfo" />
+            <s:element minOccurs="0" name="clientId" type="s:string" />
+            <s:element minOccurs="0" name="staffId" type="s:string" />
+            <s:element minOccurs="0" name="coStaffId" type="s:string" />
+            <s:element minOccurs="0" name="groupCode" type="s:string" />
+            <s:element minOccurs="0" name="startDate" type="s:date" />
+            <s:element minOccurs="0" name="endDate" type="s:date" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVerifiedAppointmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetVerifiedAppointmentsResult" type="s0:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAppointmentsByDateTimeSoapIn">
+    <wsdl:part name="parameters" element="s0:GetAppointmentsByDateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetAppointmentsByDateTimeSoapOut">
+    <wsdl:part name="parameters" element="s0:GetAppointmentsByDateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientAppointmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetClientAppointments" />
+  </wsdl:message>
+  <wsdl:message name="GetClientAppointmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetClientAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCoStaffAppointmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetCoStaffAppointments" />
+  </wsdl:message>
+  <wsdl:message name="GetCoStaffAppointmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetCoStaffAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupAppointmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetGroupAppointments" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupAppointmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetGroupAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostedAppointmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetPostedAppointments" />
+  </wsdl:message>
+  <wsdl:message name="GetPostedAppointmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetPostedAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteAppointmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetSiteAppointments" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteAppointmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetSiteAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStaffAppointmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetStaffAppointments" />
+  </wsdl:message>
+  <wsdl:message name="GetStaffAppointmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetStaffAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnVerifiedAppointmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetUnVerifiedAppointments" />
+  </wsdl:message>
+  <wsdl:message name="GetUnVerifiedAppointmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetUnVerifiedAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVerifiedAppointmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetVerifiedAppointments" />
+  </wsdl:message>
+  <wsdl:message name="GetVerifiedAppointmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetVerifiedAppointmentsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AppointmentSoap">
+    <wsdl:operation name="GetAppointmentsByDateTime">
+      <wsdl:input message="s0:GetAppointmentsByDateTimeSoapIn" />
+      <wsdl:output message="s0:GetAppointmentsByDateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAppointments">
+      <wsdl:input message="s0:GetClientAppointmentsSoapIn" />
+      <wsdl:output message="s0:GetClientAppointmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoStaffAppointments">
+      <wsdl:input message="s0:GetCoStaffAppointmentsSoapIn" />
+      <wsdl:output message="s0:GetCoStaffAppointmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupAppointments">
+      <wsdl:input message="s0:GetGroupAppointmentsSoapIn" />
+      <wsdl:output message="s0:GetGroupAppointmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostedAppointments">
+      <wsdl:input message="s0:GetPostedAppointmentsSoapIn" />
+      <wsdl:output message="s0:GetPostedAppointmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAppointments">
+      <wsdl:input message="s0:GetSiteAppointmentsSoapIn" />
+      <wsdl:output message="s0:GetSiteAppointmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffAppointments">
+      <wsdl:input message="s0:GetStaffAppointmentsSoapIn" />
+      <wsdl:output message="s0:GetStaffAppointmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnVerifiedAppointments">
+      <wsdl:input message="s0:GetUnVerifiedAppointmentsSoapIn" />
+      <wsdl:output message="s0:GetUnVerifiedAppointmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVerifiedAppointments">
+      <wsdl:input message="s0:GetVerifiedAppointmentsSoapIn" />
+      <wsdl:output message="s0:GetVerifiedAppointmentsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AppointmentSoap" type="s0:AppointmentSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAppointmentsByDateTime">
+      <soap:operation soapAction="http://ntst.com/WSAPI.PM.Appointment.AppointmentService.GetAppointmentsByDateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAppointments">
+      <soap:operation soapAction="http://ntst.com/WSAPI.PM.Appointment.AppointmentService.GetClientAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoStaffAppointments">
+      <soap:operation soapAction="http://ntst.com/WSAPI.PM.Appointment.AppointmentService.GetCoStaffAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupAppointments">
+      <soap:operation soapAction="http://ntst.com/WSAPI.PM.Appointment.AppointmentService.GetGroupAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostedAppointments">
+      <soap:operation soapAction="http://ntst.com/WSAPI.PM.Appointment.AppointmentService.GetPostedAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAppointments">
+      <soap:operation soapAction="http://ntst.com/WSAPI.PM.Appointment.AppointmentService.GetSiteAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffAppointments">
+      <soap:operation soapAction="http://ntst.com/WSAPI.PM.Appointment.AppointmentService.GetStaffAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnVerifiedAppointments">
+      <soap:operation soapAction="http://ntst.com/WSAPI.PM.Appointment.AppointmentService.GetUnVerifiedAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVerifiedAppointments">
+      <soap:operation soapAction="http://ntst.com/WSAPI.PM.Appointment.AppointmentService.GetVerifiedAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Appointment">
+    <wsdl:port name="AppointmentSoap" binding="s0:AppointmentSoap">
+      <soap:address location="http://avtest:8972/csp/avtest/hmhcpmlive/WSAPI.PM.Appointment.AppointmentService.cls" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

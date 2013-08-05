@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s0="http://tempuri.org" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org">
+      <s:element name="AddClientDiagnosis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+            <s:element minOccurs="0" name="ClientDiagnosisInfo" type="s0:ClientDiagnosisObject" />
+            <s:element minOccurs="0" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" name="EpisodeNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ClientDiagnosisObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="AxIVEconomic" type="s:string" />
+          <s:element minOccurs="0" name="AxIVEconomicRemarks" type="s:string" />
+          <s:element minOccurs="0" name="AxIVEducational" type="s:string" />
+          <s:element minOccurs="0" name="AxIVEducationalRemarks" type="s:string" />
+          <s:element minOccurs="0" name="AxIVHealthCareSvs" type="s:string" />
+          <s:element minOccurs="0" name="AxIVHealthCareSvsRemarks" type="s:string" />
+          <s:element minOccurs="0" name="AxIVHousing" type="s:string" />
+          <s:element minOccurs="0" name="AxIVHousingRemarks" type="s:string" />
+          <s:element minOccurs="0" name="AxIVLegalSysCrm" type="s:string" />
+          <s:element minOccurs="0" name="AxIVLegalSysCrmRemarks" type="s:string" />
+          <s:element minOccurs="0" name="AxIVOccupational" type="s:string" />
+          <s:element minOccurs="0" name="AxIVOccupationalRemarks" type="s:string" />
+          <s:element minOccurs="0" name="AxIVOtherProblems" type="s:string" />
+          <s:element minOccurs="0" name="AxIVOtherProblemsRemarks" type="s:string" />
+          <s:element minOccurs="0" name="AxIVPrimSuppGroup" type="s:string" />
+          <s:element minOccurs="0" name="AxIVPrimSuppGroupRemarks" type="s:string" />
+          <s:element minOccurs="0" name="AxIVSocEnviron" type="s:string" />
+          <s:element minOccurs="0" name="AxIVSocEnvironRemarks" type="s:string" />
+          <s:element minOccurs="0" name="DRGCode" type="s:string" />
+          <s:element minOccurs="0" name="DateOfDiagnosis" type="s:date" />
+          <s:element minOccurs="0" name="DiagAxVCrntGAFRating" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosingPractitioner" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI1" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI10" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI11" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI12" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI13" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI14" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI15" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI16" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI17" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI18" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI19" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI2" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI20" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI21" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI22" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI23" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI24" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI25" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI26" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI27" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI28" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI29" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI3" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI30" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI4" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI5" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI6" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI7" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI8" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisI9" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII1" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII10" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII11" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII12" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII13" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII14" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII15" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII16" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII17" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII18" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII19" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII2" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII20" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII21" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII22" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII23" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII24" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII25" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII26" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII27" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII28" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII29" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII3" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII30" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII4" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII5" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII6" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII7" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII8" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisII9" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII1" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII10" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII11" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII12" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII13" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII14" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII15" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII16" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII17" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII18" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII19" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII2" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII20" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII21" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII22" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII23" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII24" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII25" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII26" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII27" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII28" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII29" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII3" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII30" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII4" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII5" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII6" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII7" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII8" type="s:string" />
+          <s:element minOccurs="0" name="DiagnosisAxisIII9" type="s:string" />
+          <s:element minOccurs="0" name="EstimatedDD" type="s:date" />
+          <s:element minOccurs="0" name="GAFHighestLast12Months" type="s:string" />
+          <s:element minOccurs="0" name="GAFLowestLast12Months" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI1" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI10" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI11" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI12" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI13" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI14" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI15" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI16" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI17" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI18" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI19" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI2" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI20" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI21" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI22" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI23" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI24" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI25" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI26" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI27" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI28" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI29" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI3" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI30" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI4" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI5" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI6" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI7" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI8" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxI9" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII1" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII10" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII11" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII12" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII13" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII14" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII15" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII16" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII17" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII18" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII19" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII2" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII20" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII21" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII22" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII23" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII24" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII25" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII26" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII27" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII28" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII29" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII3" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII30" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII4" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII5" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII6" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII7" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII8" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxII9" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII1" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII10" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII11" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII12" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII13" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII14" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII15" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII16" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII17" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII18" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII19" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII2" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII20" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII21" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII22" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII23" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII24" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII25" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII26" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII27" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII28" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII29" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII3" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII30" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII4" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII5" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII6" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII7" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII8" type="s:string" />
+          <s:element minOccurs="0" name="PresentOnAdmissionIndAxIII9" type="s:string" />
+          <s:element minOccurs="0" name="PrincipalDiagnosis" type="s:string" />
+          <s:element minOccurs="0" name="Prognosis" type="s:string" />
+          <s:element minOccurs="0" name="SecondaryDiagnosis" type="s:string" />
+          <s:element minOccurs="0" name="TertiaryDiagnosis" type="s:string" />
+          <s:element minOccurs="0" name="TimeOfDiagnosis" type="s:string" />
+          <s:element minOccurs="0" name="TypeOfDiagnosis" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText201" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText202" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText203" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText204" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText205" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText401" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText402" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText403" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText404" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisFreeText405" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisDict1" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisDict2" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisDict3" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisDict4" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisDict5" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisMult1" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisMult2" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisMult3" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisMult4" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisMult5" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisDate1" type="s:date" />
+          <s:element minOccurs="0" name="SSDiagnosisDate2" type="s:date" />
+          <s:element minOccurs="0" name="SSDiagnosisDate3" type="s:date" />
+          <s:element minOccurs="0" name="SSDiagnosisDate4" type="s:date" />
+          <s:element minOccurs="0" name="SSDiagnosisDate5" type="s:date" />
+          <s:element minOccurs="0" name="SSDiagnosisTime1" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisTime2" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisTime3" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisTime4" type="s:string" />
+          <s:element minOccurs="0" name="SSDiagnosisTime5" type="s:string" />
+          <s:element minOccurs="0" name="CgasCode" type="s:string" />
+          <s:element minOccurs="0" name="Dc03Code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddClientDiagnosisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="AddClientDiagnosisResult" type="s0:WebServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WebServiceResponse">
+        <s:sequence>
+          <s:element minOccurs="0" name="Confirmation" type="s:string" />
+          <s:element minOccurs="0" name="Message" type="s:string" />
+          <s:element minOccurs="0" name="ResponseCode" type="s:string" />
+          <s:element minOccurs="0" name="ResponseObjects" type="s0:ArrayOfResponseObjectResponseObject" />
+          <s:element minOccurs="0" name="Status" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResponseObjectResponseObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResponseObject" nillable="true" type="s0:ResponseObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResponseObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="Confirmation" type="s:string" />
+          <s:element minOccurs="0" name="Message" type="s:string" />
+          <s:element minOccurs="0" name="Status" type="s:long" />
+          <s:element minOccurs="0" name="ResponseCode" type="s:string" />
+          <s:element minOccurs="0" name="UniqueID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteClientDiagnosis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+            <s:element minOccurs="0" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" name="EpisodeNumber" type="s:string" />
+            <s:element minOccurs="0" name="UniqueID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteClientDiagnosisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="DeleteClientDiagnosisResult" type="s0:WebServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditClientDiagnosis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+            <s:element minOccurs="0" name="ClientDiagnosisInfo" type="s0:ClientDiagnosisObject" />
+            <s:element minOccurs="0" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" name="EpisodeNumber" type="s:string" />
+            <s:element minOccurs="0" name="UniqueID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditClientDiagnosisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="EditClientDiagnosisResult" type="s0:WebServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDictionaryItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="SystemCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDictionaryItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetDictionaryItemsResult" type="s0:ArrayOfDictionaryItemObjectDictionaryItemObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDictionaryItemObjectDictionaryItemObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DictionaryItemObject" nillable="true" type="s0:DictionaryItemObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DictionaryItemObject">
+        <s:sequence>
+          <s:element minOccurs="0" name="DictionaryCode" type="s:string" />
+          <s:element minOccurs="0" name="DictionaryFieldDescription" type="s:string" />
+          <s:element minOccurs="0" name="DictionaryUniqueId" type="s:string" />
+          <s:element minOccurs="0" name="DictionaryValue" type="s:string" />
+          <s:element minOccurs="0" name="Mesg" type="s:string" />
+          <s:element minOccurs="0" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddClientDiagnosisSoapIn">
+    <wsdl:part name="parameters" element="s0:AddClientDiagnosis" />
+  </wsdl:message>
+  <wsdl:message name="AddClientDiagnosisSoapOut">
+    <wsdl:part name="parameters" element="s0:AddClientDiagnosisResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteClientDiagnosisSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteClientDiagnosis" />
+  </wsdl:message>
+  <wsdl:message name="DeleteClientDiagnosisSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteClientDiagnosisResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditClientDiagnosisSoapIn">
+    <wsdl:part name="parameters" element="s0:EditClientDiagnosis" />
+  </wsdl:message>
+  <wsdl:message name="EditClientDiagnosisSoapOut">
+    <wsdl:part name="parameters" element="s0:EditClientDiagnosisResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDictionaryItemsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetDictionaryItems" />
+  </wsdl:message>
+  <wsdl:message name="GetDictionaryItemsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetDictionaryItemsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ClientDiagnosisSoap">
+    <wsdl:operation name="AddClientDiagnosis">
+      <wsdl:input message="s0:AddClientDiagnosisSoapIn" />
+      <wsdl:output message="s0:AddClientDiagnosisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientDiagnosis">
+      <wsdl:input message="s0:DeleteClientDiagnosisSoapIn" />
+      <wsdl:output message="s0:DeleteClientDiagnosisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditClientDiagnosis">
+      <wsdl:input message="s0:EditClientDiagnosisSoapIn" />
+      <wsdl:output message="s0:EditClientDiagnosisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDictionaryItems">
+      <wsdl:input message="s0:GetDictionaryItemsSoapIn" />
+      <wsdl:output message="s0:GetDictionaryItemsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClientDiagnosisSoap" type="s0:ClientDiagnosisSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddClientDiagnosis">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.ClientDiagnosis.AddClientDiagnosis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientDiagnosis">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.ClientDiagnosis.DeleteClientDiagnosis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditClientDiagnosis">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.ClientDiagnosis.EditClientDiagnosis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDictionaryItems">
+      <soap:operation soapAction="http://tempuri.org/WEBSVC.ClientDiagnosis.GetDictionaryItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientDiagnosis">
+    <wsdl:port name="ClientDiagnosisSoap" binding="s0:ClientDiagnosisSoap">
+      <soap:address location="http://avtest:8972/csp/avtest/hmhcpmlive/WEBSVC.ClientDiagnosis.cls" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
