@@ -184,6 +184,9 @@ namespace NTST.ScriptLinkService.Web
                 case "CheckOverlapTXPN":
                     returnOptionObject = CheckOverlap(optionObject, "TXPN");
                     break;
+                case "CheckOverlapMedNote":
+                    returnOptionObject = CheckOverlap(optionObject, "MedNote");
+                    break;
                 case "AddDurationAndTime":
                     returnOptionObject = AddDurationAndTime(optionObject, scriptName);
                     break;
@@ -216,7 +219,7 @@ namespace NTST.ScriptLinkService.Web
             var housingPrograms = ConfigurationManager.AppSettings["HousingPrograms"].ToString().Split(',').ToList();
             if (Client != null)
             {
-                if(westBrowardPrograms.Contains(Client.ProgramCode))
+                if (westBrowardPrograms.Contains(Client.ProgramCode))
                 {
                     sendEmail(
                         ConfigurationManager.AppSettings["SMTPFromEmailAddress"].ToString(),
@@ -226,7 +229,7 @@ namespace NTST.ScriptLinkService.Web
                         new List<string>(),
                         ConfigurationManager.AppSettings["westBrowardAdmitTicketCreation"].ToString().Split(',').ToList());
                 }
-                else if(housingPrograms.Contains(Client.ProgramCode))
+                else if (housingPrograms.Contains(Client.ProgramCode))
                 {
                     sendEmail(
                         ConfigurationManager.AppSettings["SMTPFromEmailAddress"].ToString(),
@@ -374,16 +377,16 @@ namespace NTST.ScriptLinkService.Web
         private OptionObject ProgramTransfer(OptionObject optionObject, string scriptName)
         {
             var returnOptionObject = new OptionObject();
-            var clientField = new FieldObject { FieldNumber = "6.87" };
-            var episodeField = new FieldObject { FieldNumber = "6.88" };
-            var currentProgramField = new FieldObject { FieldNumber = "6.90" };
-            var currentTreatmentSettingField = new FieldObject { FieldNumber = "6.91" };
-            var programField = new FieldObject { FieldNumber = "6.92" };
-            var treatmentSettingField = new FieldObject { FieldNumber = "6.93" };
-            var treatmentServiceField = new FieldObject { FieldNumber = "6.94" };
-            var rrgField = new FieldObject { FieldNumber = "6.95" };
-            var dateField = new FieldObject { FieldNumber = "6.86" };
-            var transferTypeField = new FieldObject { FieldNumber = "6.89" };
+            var clientField = new FieldObject { FieldNumber = "8" };
+            var episodeField = new FieldObject { FieldNumber = "8.01" };
+            var currentProgramField = new FieldObject { FieldNumber = "7.99" };
+            var currentTreatmentSettingField = new FieldObject { FieldNumber = "8.02" };
+            var programField = new FieldObject { FieldNumber = "8.03" };
+            var treatmentSettingField = new FieldObject { FieldNumber = "8.04" };
+            var treatmentServiceField = new FieldObject { FieldNumber = "8.05" };
+            var rrgField = new FieldObject { FieldNumber = "8.06" };
+            var dateField = new FieldObject { FieldNumber = "7.97" };
+            var transferTypeField = new FieldObject { FieldNumber = "7.98" };
             var fields = new List<FieldObject>();
             var program = new Program();
 
@@ -399,6 +402,8 @@ namespace NTST.ScriptLinkService.Web
                         fields.Add(currentProgramField);
                         fields.Add(currentTreatmentSettingField);
                         fields.ForEach(f => f.Enabled = "0");
+                        programField.Enabled = "1";
+                        fields.Add(programField);
                         break;
                     case "ProgramField":
                         program = getProgramInfoByProgramId(optionObject.Forms[0].CurrentRow.Fields.First(f => f.FieldNumber.Equals(programField.FieldNumber)).FieldValue);
@@ -418,6 +423,7 @@ namespace NTST.ScriptLinkService.Web
                         fields.Add(treatmentServiceField);
                         fields.Add(treatmentSettingField);
                         fields.Add(rrgField);
+                        fields.Add(programField);
                         fields.ForEach(f => f.Enabled = "0");
                         break;
                     case "PreFile":
@@ -445,9 +451,11 @@ namespace NTST.ScriptLinkService.Web
                             programTransferObj.TypeOfTransfer = transferTypeField.FieldValue;
                         var programTransfer = new NTST.ScriptLinkService.Web.ProgramTransfer.ProgramTransfer();
                         var response = programTransfer.TransferProgram(SystemCode, Username, Password, programTransferObj, optionObject.EntityID, episodeField.FieldValue);
-                        returnOptionObject.ErrorCode = response.Status == 1 ? 3 : 1;
-                        returnOptionObject.ErrorMesg = response.Status == 1 ? "Client transfer was successful." :
-                                                                    "Client transfer could not be completed, please try again.\nIf this problem persists contact your system administrator.";
+                        returnOptionObject.ErrorCode = response.Status == 1 ? 4 : 1;
+                        returnOptionObject.ErrorMesg = response.Status == 1 ? "Client transfer was successful. View Report?" :
+                                                                    "Client transfer could not be completed, please try again.\nIf this problem persists contact your system administrator.\r\n\r\nError Message: " +
+                                                                    response.Message;
+
                         if (response.Status != 1)
                             sendEmail(ConfigurationManager.AppSettings["SMTPFromEmailAddress"].ToString(),
                                     "Program transfer failed",
@@ -603,19 +611,19 @@ namespace NTST.ScriptLinkService.Web
             };
             List<CaseloadRecord> listOfRecords = new List<CaseloadRecord>();
             var connectionString = ConfigurationManager.ConnectionStrings["CacheODBC"].ConnectionString;
-            const string commandText = "SELECT addc.add_client, "+
+            const string commandText = "SELECT addc.add_client, " +
                                             "addc.caseload_type, " +
-                                            "addc.CUSTHNBW_UID "+
-                                            "FROM SYSTEM.PM_OTHER_CASELOAD addc "+
-                                            "LEFT OUTER JOIN SYSTEM.PM_OTHER_CASELOAD remc "+
-                                            "ON addc.PATID = remc.PATID "+
-                                            "AND addc.EPISODE_NUMBER = remc.EPISODE_NUMBER "+
-                                            "AND addc.add_client = remc.remove_client "+
-                                            "AND addc.FACILITY = remc.FACILITY "+
-                                            "WHERE addc.add_client IS NOT NULL "+
-                                            "AND addc.PATID=? "+
-                                            "AND addc.EPISODE_NUMBER=? "+
-                                            "GROUP BY addc.add_client "+
+                                            "addc.CUSTHNBW_UID " +
+                                            "FROM SYSTEM.PM_OTHER_CASELOAD addc " +
+                                            "LEFT OUTER JOIN SYSTEM.PM_OTHER_CASELOAD remc " +
+                                            "ON addc.PATID = remc.PATID " +
+                                            "AND addc.EPISODE_NUMBER = remc.EPISODE_NUMBER " +
+                                            "AND addc.add_client = remc.remove_client " +
+                                            "AND addc.FACILITY = remc.FACILITY " +
+                                            "WHERE addc.add_client IS NOT NULL " +
+                                            "AND addc.PATID=? " +
+                                            "AND addc.EPISODE_NUMBER=? " +
+                                            "GROUP BY addc.add_client " +
                                             "HAVING COUNT(DISTINCT addc.CUSTHNBW_UID) > COUNT(DISTINCT remc.CUSTHNBW_UID) ";
             using (var connection = new OdbcConnection(connectionString))
             {
@@ -1695,7 +1703,9 @@ namespace NTST.ScriptLinkService.Web
         }
         private bool guarantorAndServiceNeedAuth(Service service)
         {
-            List<String> List202 = new List<String>() { "203" };
+
+            List<String> List202 = new List<String>() { "203", "300", "3000", "301", "3001", "307", "313", "315", "316", "400", "4000", "4001" };
+
             List<String> List207_208_210 = new List<String>() { "203", "3000", "3001", "300", "301", "307", "313", "315", "316", "400", "401", "402", "403", "404", "405", "4000", "4001" };
             List<String> List212 = new List<String>() { "400", "401", "402", "403", "404", "405", "300", "3000", "301", "3001", "307", "313", "315", "316", "203" };
             switch (service.GuarantorId)
@@ -3346,6 +3356,13 @@ namespace NTST.ScriptLinkService.Web
                     durationField.FieldNumber = "144.1";
                     serviceCodeField.FieldNumber = "144.11";
                     formStatusField.FieldNumber = "144.16";
+                    break;
+                case "MedNote":
+                    dateField.FieldNumber = "151.95";
+                    startTimeField.FieldNumber = "152.01";
+                    durationField.FieldNumber = "152.32";
+                    serviceCodeField.FieldNumber = "152.3";
+                    formStatusField.FieldNumber = "152.36";
                     break;
                 default:
                     break;
