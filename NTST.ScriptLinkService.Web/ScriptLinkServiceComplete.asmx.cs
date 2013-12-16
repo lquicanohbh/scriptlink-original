@@ -2996,26 +2996,29 @@ namespace NTST.ScriptLinkService.Web
                             dateField.FieldValue = field.FieldValue;
                     }
                 }
-                var clientDiagnosisObj = previousDiagnosisExist(optionObject);
-                if (clientDiagnosisObj == null)
+                if (!IsPrimaryCareEpisode(optionObject.EntityID, optionObject.EpisodeNumber))
                 {
-                    returnOptionObject.ErrorCode = 3;
-                    returnOptionObject.ErrorMesg = "This client does not have a diagnosis on file.\n" +
-                                                    "Progress notes will not bill properly without a diagnosis.\n" +
-                                                    "Please create a diagnosis for this client.\n" +
-                                                    "If your supervisor verifies that your program/guarantor does not require a diagnosis," +
-                                                    "you must enter the diagnosis of 799.9 (Diagnosis Deferred).";
-                }
-                else if ((clientDiagnosisObj.DateOfDiagnosis.CompareTo(DateTime.Parse(dateField.FieldValue))) > 0)
-                {
-                    returnOptionObject.ErrorCode = 2;
-                    returnOptionObject.ErrorMesg = "The service date entered is before the diagnosis date on file: " +
-                                                    "\n\nDiagnosis: " + clientDiagnosisObj.DiagnosisAxisI1 +
-                                                    "\nDate: " + clientDiagnosisObj.DateOfDiagnosis.ToString("MM/dd/yyyy") +
-                                                    ",  Time: " + clientDiagnosisObj.TimeOfDiagnosis +
-                                                    "\nDiagnosis Type: " + clientDiagnosisObj.TypeOfDiagnosis +
-                                                    "\nDiagnosing Practitioner: " + clientDiagnosisObj.DiagnosingPractitioner +
-                                                    "\n\nThis service will <b>not</b> bill if the date is before the diagnosis date.";
+                    var clientDiagnosisObj = previousDiagnosisExist(optionObject);
+                    if (clientDiagnosisObj == null)
+                    {
+                        returnOptionObject.ErrorCode = 3;
+                        returnOptionObject.ErrorMesg = "This client does not have a diagnosis on file.\n" +
+                                                        "Progress notes will not bill properly without a diagnosis.\n" +
+                                                        "Please create a diagnosis for this client.\n" +
+                                                        "If your supervisor verifies that your program/guarantor does not require a diagnosis," +
+                                                        "you must enter the diagnosis of 799.9 (Diagnosis Deferred).";
+                    }
+                    else if ((clientDiagnosisObj.DateOfDiagnosis.CompareTo(DateTime.Parse(dateField.FieldValue))) > 0)
+                    {
+                        returnOptionObject.ErrorCode = 2;
+                        returnOptionObject.ErrorMesg = "The service date entered is before the diagnosis date on file: " +
+                                                        "\n\nDiagnosis: " + clientDiagnosisObj.DiagnosisAxisI1 +
+                                                        "\nDate: " + clientDiagnosisObj.DateOfDiagnosis.ToString("MM/dd/yyyy") +
+                                                        ",  Time: " + clientDiagnosisObj.TimeOfDiagnosis +
+                                                        "\nDiagnosis Type: " + clientDiagnosisObj.TypeOfDiagnosis +
+                                                        "\nDiagnosing Practitioner: " + clientDiagnosisObj.DiagnosingPractitioner +
+                                                        "\n\nThis service will <b>not</b> bill if the date is before the diagnosis date.";
+                    }
                 }
             }
             catch (Exception e)
@@ -3028,6 +3031,35 @@ namespace NTST.ScriptLinkService.Web
             if (optionObject.OptionStaffId.Equals("003819"))
                 returnOptionObject.ErrorMesg = returnOptionObject.ErrorMesg + "\n\nLlyan, we need more INDIAN SPICE!!!\n\n";
             return returnOptionObject;
+        }
+
+        private bool IsPrimaryCareEpisode(string p, double p_2)
+        {
+            bool returnValue = false;
+            var connectionString = ConfigurationManager.ConnectionStrings["CacheODBC"].ConnectionString;
+            #region SQLQuery
+            var commandText = "SELECT primary_care_pgm_code FROM SYSTEM.episode_history ep " +
+                "INNER JOIN SYSTEM.table_program_definition prog " +
+                "ON ep.program_code = prog.program_code " +
+                "AND ep.FACILITY = prog.FACILITY " +
+                "WHERE ep.PATID=? " +
+                "AND ep.EPISODE_NUMBER=? ";
+            #endregion
+            using (var connection = new OdbcConnection(connectionString))
+            {
+                connection.Open();
+                using (var dbcommand = new OdbcCommand(commandText, connection))
+                {
+                    dbcommand.Parameters.Add(new OdbcParameter("PATID", p));
+                    dbcommand.Parameters.Add(new OdbcParameter("EPISODE_NUMBER", p_2.ToString()));
+                    using (var reader = dbcommand.ExecuteReader())
+                    {
+                        if (reader["primary_care_pgm_code"].ToString().Equals("Y"))
+                            returnValue = true;
+                    }
+                }
+            }
+            return returnValue;
         }
         private OptionObject SocialSecurityDefault(OptionObject optionObject, Boolean isAdmissionScreen)
         {

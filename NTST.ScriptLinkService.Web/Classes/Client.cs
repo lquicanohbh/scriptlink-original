@@ -46,6 +46,7 @@ namespace NTST.ScriptLinkService.Web
         public string SlidingFeeScaleIncome { get; set; }
         public string SlidingFeeScaleNumberOfDependents { get; set; }
         public string SlidingFeeScaleFamilySize { get; set; }
+        public bool IsPrimaryCare { get; set; }
         public override string ToString()
         {
             return "ClientId: " + this.ClientId +
