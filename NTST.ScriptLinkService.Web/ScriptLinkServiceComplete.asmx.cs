@@ -1709,8 +1709,10 @@ namespace NTST.ScriptLinkService.Web
             List<String> List207_208_210 = new List<String>() { "203", "3000", "3001", "300", "301", "307", "313", "315", "316", "400", "401", "402", "403", "404", "405", "4000", "4001" };
             List<String> List212 = new List<String>() { "400", "401", "402", "403", "404", "405", "300", "3000", "301", "3001", "307", "313", "315", "316", "203" };
             List<String> List213_406 = new List<String>() { "200", "201", "202", "203", "3000", "3001", "300", "301", "307", "313", "315", "316", "400", "401", "402", "4000", "4001" };
+            List<String> List57 = new List<String>() { "203" };
             switch (service.GuarantorId)
             {
+                case "57": return List57.Contains(service.ServiceCode);
                 case "202": return List202.Contains(service.ServiceCode);
                 case "205": return true;
                 case "207": return List207_208_210.Contains(service.ServiceCode);
